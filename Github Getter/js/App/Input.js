@@ -21,12 +21,14 @@ export default class Input {
   // bind a handler for this input component
   // chose not to use forms for this for some reason
   bind(handler) {
+    // bind to text element
     this.$text.on('keypress', (event) => {
       const val = this._getVal();
       if (event.keyCode === 13 && val.length) {
         handler(val);
       }
     });
+    // bind to button
     this.$button.on('click', (event) => {
       const val = this._getVal();
       if (val.length) {
@@ -35,6 +37,7 @@ export default class Input {
     });
   }
 
+  // some cleanup functions that we never use
   unbind() {
     this.$text.off();
     this.$button.off();

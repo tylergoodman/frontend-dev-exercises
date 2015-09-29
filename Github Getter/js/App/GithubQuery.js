@@ -1,4 +1,4 @@
-
+// class to manage paginated queries
 export default class GithubQuery {
 
   static PAGE_SIZE = 100;

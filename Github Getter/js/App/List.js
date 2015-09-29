@@ -1,4 +1,4 @@
-
+// generic list class
 export default class List {
 
   constructor($element, itemView) {

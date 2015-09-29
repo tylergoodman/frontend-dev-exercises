@@ -15,21 +15,24 @@ export class App {
   start(rootElement) {
     this.$root = $(rootElement);
 
+    // initialize components
     this.spinner = new Spinner(this.$root.find('#spinner'));
     this.input = new Input(this.$root.find('#search'), this.search.bind(this, 1));
     this.results = new List(this.$root.find('#results-container'), GithubRepoListItem);
     this.cache = new Cache(50);
 
+    // some elements for pagination
     this.$next = this.$root.find('#next');
     this.$prev = this.$root.find('#previous');
     this.$next.on('click', this.getNext.bind(this));
     this.$prev.on('click', this.getPrev.bind(this));
 
+    // our state
     this.currentQuery = undefined;
     this.currentPage = 1;
   }
 
-
+  // some fun with es6 setters to handle the pagination ui changes
   set hasPrev(value) {
     this.$prev.attr('disabled', !value);
   }
@@ -38,6 +41,7 @@ export class App {
     this.$next.attr('disabled', !value);
   }
 
+  // handlers for our previous/next buttons
   getNext() {
     // so we can't spam the button while it's loading...
     this.$next.add(this.$prev).attr('disabled', true);
@@ -48,6 +52,7 @@ export class App {
     this.search(--this.currentPage, this.currentQuery);
   }
 
+  // handler for our search input
   search(page, keyword) {
     // start our spinner
     this.spinner.spin();

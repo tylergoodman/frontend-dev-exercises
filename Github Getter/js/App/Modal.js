@@ -1,4 +1,4 @@
-
+// quick and dirty modals
 export default class Modal {
 
   static template = undefined;

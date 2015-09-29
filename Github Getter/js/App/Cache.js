@@ -1,3 +1,7 @@
+// singly-linked list to manage our cache
+// almost not worth making in lieu of using an array to
+// keep track of old items
+// maybe completely not worth it?
 export default class Cache {
   constructor(max_length) {
     this.dict = {};
