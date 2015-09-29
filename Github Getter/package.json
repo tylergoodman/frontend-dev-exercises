@@ -1,0 +1,25 @@
+{
+  "name": "frontend-dev-exercises",
+  "version": "1.0.0",
+  "description": "Frontend development exercises that help in evaluating candidates skill-level and experience.",
+  "scripts": {
+    "watch": "watchify -e js/App/index.js -o js/app.js -d -v -t [ babelify --stage 0 ]",
+    "build": "browserify -e js/App/index.js -o js/app.js -d -t [ babelify --stage 0 ]",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylergoodman/frontend-dev-exercises.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/tylergoodman/frontend-dev-exercises/issues"
+  },
+  "homepage": "https://github.com/tylergoodman/frontend-dev-exercises#readme",
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "node-sass": "^3.3.3",
+    "watchify": "^3.4.0"
+  }
+}

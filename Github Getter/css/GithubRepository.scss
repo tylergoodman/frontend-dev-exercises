@@ -1,0 +1,24 @@
+.github-repo {
+  overflow: hidden;
+  position: relative;
+  // transition-duration: 250ms;
+
+  .title {
+    cursor: pointer;
+  }
+
+  .details {
+    a {
+      word-break: break-word;
+    }
+    .stats {
+      float: right;
+    }
+  }
+
+  &.minimized {
+    .details {
+      @extend .hidden;
+    }
+  }
+}

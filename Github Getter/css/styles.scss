@@ -1,0 +1,47 @@
+@import 'Spinner';
+@import 'List';
+@import 'GithubRepository';
+@import 'Modal';
+
+body {
+  font-family: monospace;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+button[disabled] {
+  color: darkgrey;
+}
+
+.hidden {
+  display: none;
+}
+
+#controls {
+  display: flex;
+
+  & > * {
+    padding: 5px;
+  }
+
+  #search {
+    display: flex;
+    flex-grow: 1;
+    input {
+      flex-grow: 1;
+    }
+    button {
+      margin-left: 5px;
+    }
+  }
+
+  #spinner {
+    margin-left: 5px;
+  }
+}
+
+#paginator {
+  margin: 5px;
+  float: right;
+}

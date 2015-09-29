@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no">
 
-  <title>Search</title>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/styles.css">
+    <title>Search</title>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-  <script src="js/app.js"></script>
-</head>
-<body>
-  <input id="search" type="text"/>
-  <div id="results-container"></div>
-  <div id="overlay-container"></div>
-</body>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+
+  <body>
+    <div id="controls">
+      <span id="spinner" class="spinner"></span>
+      <span id="search">
+        <input type="text" placeholder="keywords" />
+        <button type="button">Search</button>
+      </span>
+    </div>
+    <div id="results-container" class="list"></div>
+    <div id="paginator">
+      <button id="previous" type="button" disabled>Previous</button>
+      <button id="next" type="button" disabled>Next</button>
+    </div>
+
+    <!-- templates -->
+    <script type="text/x-handlebars-template" id="template-GithubRepoListItem">
+      <div class="list-item github-repo minimized">
+        <div class="title">
+          <span><%= owner.login %></span><span class="vertical-divider"></span><span><%= name %></span>
+        </div>
+        <div class="details">
+          <p><%= description %></p>
+          <a target="_blank" href="<%= html_url %>"><%= html_url %></a>
+          <span class="stats"><%= watchers %> followers<span class="vertical-divider"></span><%= language %></span>
+        </div>
+      </div>
+    </script>
+    <script type="text/x-handlebars-template" id="template-Modal">
+      <div class="modal-container">
+        <div class="modal">
+          <span><%= message %></span>
+          <button type="button">Ok</button>
+        </div>
+      </div>
+    </script>
+
+  </body>
+
 </html>
