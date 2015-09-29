@@ -2,6 +2,7 @@
 // almost not worth making in lieu of using an array to
 // keep track of old items
 // maybe completely not worth it?
+// needs testing
 export default class Cache {
   constructor(max_length) {
     this.dict = {};
